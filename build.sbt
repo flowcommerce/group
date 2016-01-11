@@ -30,8 +30,8 @@ lazy val api = project
       ws,
       jdbc,
       "io.flow" %% "lib-play" % "0.0.18",
-      "io.flow" %% "lib-postgresql" % "0.0.16",
-      "com.typesafe.play" %% "anorm" % "2.4.0",
+      "io.flow" %% "lib-postgresql" % "0.0.17",
+      "com.typesafe.play" %% "anorm" % "2.5.0",
       "org.postgresql" % "postgresql" % "9.4-1206-jdbc42",
       "org.scalatestplus" %% "play" % "1.4.0-M4" % "test"
     )
@@ -46,7 +46,7 @@ lazy val www = project
   .settings(
     routesImport += "io.flow.group.v0.Bindables._",
     libraryDependencies ++= Seq(
-      "org.webjars" %% "webjars-play" % "2.4.0-1",
+      "org.webjars" %% "webjars-play" % "2.4.0-2",
       "org.webjars" % "bootstrap" % "3.3.6",
       "org.webjars" % "jquery" % "2.1.4"
     )
@@ -55,7 +55,7 @@ lazy val www = project
 lazy val commonSettings: Seq[Setting[_]] = Seq(
   name <<= name("group-" + _),
   libraryDependencies ++= Seq(
-    "org.scalatest" %% "scalatest" % "2.2.0" % "test"
+    "org.scalatest" %% "scalatest" % "2.2.6" % "test"
   ),
   scalacOptions += "-feature",
   coverageHighlighting := true
