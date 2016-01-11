@@ -1,0 +1,18 @@
+compile
+exit
+clean
+exit
+run
+projects
+project api
+compile
+reload
+udpate
+update
+exit
+project a pi
+project api
+reload
+update
+projects api
+project api

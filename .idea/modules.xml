@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/api.iml" filepath="$PROJECT_DIR$/.idea/modules/api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/api-build.iml" filepath="$PROJECT_DIR$/.idea/modules/api-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/generated.iml" filepath="$PROJECT_DIR$/.idea/modules/generated.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/generated-build.iml" filepath="$PROJECT_DIR$/.idea/modules/generated-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/group.iml" filepath="$PROJECT_DIR$/.idea/modules/group.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/group-build.iml" filepath="$PROJECT_DIR$/.idea/modules/group-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/www.iml" filepath="$PROJECT_DIR$/.idea/modules/www.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/www-build.iml" filepath="$PROJECT_DIR$/.idea/modules/www-build.iml" />
+    </modules>
+  </component>
+</project>

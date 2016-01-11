@@ -36,7 +36,7 @@
 	"user": {
 	    "fields": [
 		{ "name": "id", "type": "string" },
-		{ "name": "email", "type": "string" }
+		{ "name": "email", "type": "string", "required":false }
 	    ]
 	},
 

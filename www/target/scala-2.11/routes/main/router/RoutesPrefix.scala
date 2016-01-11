@@ -1,0 +1,16 @@
+
+// @GENERATOR:play-routes-compiler
+// @SOURCE:/Users/mikeroth/GitRepos/group/www/conf/routes
+// @DATE:Mon Jan 11 11:38:15 EST 2016
+
+
+package router {
+  object RoutesPrefix {
+    private var _prefix: String = "/"
+    def setPrefix(p: String): Unit = {
+      _prefix = p
+    }
+    def prefix: String = _prefix
+    val byNamePrefix: Function0[String] = { () => prefix }
+  }
+}
