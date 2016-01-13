@@ -33,9 +33,9 @@ with AuthorizedRestController {
   }
 
   case class UserExpander(
-                           fieldName: String,
-                           userClient: io.flow.user.v0.Client
-                         ) extends Expander {
+   fieldName: String,
+   userClient: io.flow.user.v0.Client
+  ) extends Expander {
     def expand(records: Seq[JsValue])(implicit ec: ExecutionContext): Future[Seq[JsValue]] = {
       val userIds: Seq[String] = records.map { r =>
         (r \ fieldName).validate[UserReference] match {
