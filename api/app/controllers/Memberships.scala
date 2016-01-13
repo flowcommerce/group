@@ -28,14 +28,14 @@ with AuthorizedRestController {
   private val port = 8001
   lazy val userClient = new Client(s"http://localhost:$port", auth = Some(io.flow.user.v0.Authorization.Basic("test")))
 
-  trait Expander{
+  trait Expander {
     def expand(records: Seq[JsValue])(implicit ec: ExecutionContext): Future[Seq[JsValue]]
   }
 
   case class UserExpander(
-     fieldName: String,
-     userClient: io.flow.user.v0.Client
-  ) extends Expander {
+                           fieldName: String,
+                           userClient: io.flow.user.v0.Client
+                         ) extends Expander {
     def expand(records: Seq[JsValue])(implicit ec: ExecutionContext): Future[Seq[JsValue]] = {
       val userIds: Seq[String] = records.map { r =>
         (r \ fieldName).validate[UserReference] match {
@@ -49,16 +49,19 @@ with AuthorizedRestController {
         }
         case ids => {
           userClient.Users.get(id = Some(ids), limit = userIds.size).map(users =>
-            Map(users.map(user => (user.id -> io.flow.group.v0.models.User(user.id, user.email, user.name))): _*)
+            Map(users.map(user => (user.id -> user)): _*)
           ).map(userIdLookup =>
             records.map { r =>
               r.validate[JsObject] match {
-                case JsSuccess(obj,_) => {
+                case JsSuccess(obj, _) => {
                   (r \ fieldName).validate[UserReference] match {
-                    case JsSuccess(userReference,_) => {
+                    case JsSuccess(userReference, _) => {
                       obj ++ Json.obj(
                         fieldName ->
-                          Json.toJson(userIdLookup.get(userReference.id).getOrElse(userReference))
+                          (userIdLookup.get(userReference.id) match {  //getOrElse can't be used to serialize multiple types - no formatter
+                            case Some(user) => Json.toJson(user)
+                            case None => Json.toJson(userReference)
+                          })
                       )
                     }
                     case JsError(_) => r
@@ -78,12 +81,12 @@ with AuthorizedRestController {
   )
 
   def get(
-   id: Option[Seq[String]],
-   limit: Long = 25,
-   offset: Long = 0,
-   sort: String,
-   expand: Option[Seq[String]]
-  ) = Authenticated(
+           id: Option[Seq[String]],
+           limit: Long = 25,
+           offset: Long = 0,
+           sort: String,
+           expand: Option[Seq[String]]
+         ) = Authenticated(
     reads = Some("io.flow.memberships")
   ) { request =>
     OrderBy.parse(sort) match {
@@ -91,17 +94,19 @@ with AuthorizedRestController {
         UnprocessableEntity(Json.toJson(Validation.invalidSort(errors)))
       }
       case Right(orderBy) => {
-        val memerships = MembershipsDao.findAll(ids = optionals(id),
+        MembershipsDao.findAll(ids = optionals(id),
           limit = limit,
           offset = offset,
-          orderBy = orderBy).get.map(memb => //maybe don't use 'get', but match if we actually return an Option
+          orderBy = orderBy) match {
 
-          Json.toJson(memb)
-        )
+          case Some(memberships) =>
+            val membsAsJson = memberships.map(m => Json.toJson(m))
 
-        Ok(Json.toJson(expanders.filter(e => expand.getOrElse(Nil).contains(e.fieldName)).foldLeft(memerships) { case (records, e) =>
-          Await.result(e.expand(records), Duration(5, "seconds"))
-        }))
+            Ok(Json.toJson(expanders.filter(e => expand.getOrElse(Nil).contains(e.fieldName)).foldLeft(membsAsJson) {
+              case (records, e) => Await.result(e.expand(records), Duration(5, "seconds"))
+            }))
+          case None => Results.NotFound
+        }
       }
     }
   }
