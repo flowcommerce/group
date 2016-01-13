@@ -14,3 +14,7 @@
 2016-01-13 08:41:37,264 [INFO] from application in application-akka.actor.default-dispatcher-4 - Creating Pool for datasource 'default'
 2016-01-13 08:41:37,276 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-4 - Database [default] connected at jdbc:postgresql://localhost/group
 2016-01-13 08:41:37,381 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-4 - Application started (Dev)
+2016-01-13 09:01:54,430 [INFO] from application in application-akka.actor.default-dispatcher-2 - Shutting down connection pool.
+2016-01-13 09:01:54,820 [INFO] from application in application-akka.actor.default-dispatcher-2 - Creating Pool for datasource 'default'
+2016-01-13 09:01:54,828 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-2 - Database [default] connected at jdbc:postgresql://localhost/group
+2016-01-13 09:01:54,925 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-2 - Application started (Dev)

@@ -28,14 +28,15 @@ with AuthorizedRestController {
   lazy val userClient = new Client(s"http://localhost:$port", auth = Some(io.flow.user.v0.Authorization.Basic("test")))
 
   trait Expander{
-    def expand(records: Seq[JsValue])(implicit ec: ExecutionContext): Seq[JsValue]
+    def expand(records: Seq[JsValue])(implicit ec: ExecutionContext): Future[Seq[JsValue]]
   }
 
   case class UserExpander(
      fieldName: String,
      userClient: io.flow.user.v0.Client
   ) extends Expander {
-    def expand(records: Seq[JsValue])(implicit ec: ExecutionContext): Seq[JsValue] = { //records is Seq[Memberships]]
+    def expand(records: Seq[JsValue])(implicit ec: ExecutionContext): Future[Seq[JsValue]] = {
+      //records is Seq[Memberships]]
 
       val userIds: Seq[String] = records.map { r =>
         (r \ fieldName).validate[UserReference] match {
@@ -43,31 +44,32 @@ with AuthorizedRestController {
         }
       }
 
-      val users: Future[Seq[io.flow.common.v0.models.User]] = userClient.Users.get(id = Option(userIds))  //handle None
-
-      val userIdLookup: Map[String, User] = Await.result(
-        for(
-          users <- users
-        ) yield {
-          println(users)
-          Map(users.map(u => (u.id -> User(u.id, u.email))): _*)
-        },
-        Duration(5, "seconds")
-      )
-
-      records.map { r =>
-        r.validate[JsObject] match {
-          case JsError(_) => r
-          case JsSuccess(obj,_) => {
-            (r \ fieldName).validate[UserReference] match {
-              case JsSuccess(userReference,_) => {
-                obj ++ Json.obj(
-                  fieldName -> Json.toJson(userIdLookup.get(userReference.id).getOrElse(userReference))
-                )
+      userIds match {
+        case Nil => Future {
+          records
+        }
+        case ids => {
+          userClient.Users.get(id = Some(ids), limit = userIds.size).map(users =>
+            Map(users.map(u => (u.id -> User(u.id, u.email))): _*)
+          ).map(userIdLookup =>
+            records.map { r =>
+              r.validate[JsObject] match {
+                case JsError(_) => r
+                case JsSuccess(obj, _) => {
+                  (r \ fieldName).validate[UserReference] match {
+                    case JsSuccess(userReference, _) => {
+                      obj ++ Json.obj(
+                        fieldName -> Json.toJson(
+                          userIdLookup.get(userReference.id).getOrElse(userReference)
+                        )
+                      )
+                    }
+                    case JsError(_) => r
+                  }
+                }
               }
-              case JsError(_) => r
             }
-          }
+          )
         }
       }
     }
@@ -102,9 +104,8 @@ with AuthorizedRestController {
           Json.toJson(memb)
         )
 
-
         Ok(Json.toJson(expanders.filter(e => expand.getOrElse(Nil).contains(e.fieldName)).foldLeft(memerships) { case (records, e) =>
-          e.expand(records)
+          Await.result(e.expand(records), Duration(5, "seconds"))
         }))
       }
     }
