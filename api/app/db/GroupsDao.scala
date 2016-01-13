@@ -22,7 +22,7 @@ object GroupsDao {
    offset: Long = 0,
    orderBy: OrderBy = OrderBy("-created_at", Some("groups"))
   ): Seq[Group] = {
-    /*DB.withConnection { implicit c =>
+    DB.withConnection { implicit c =>
       Standards.query(
         BaseQuery,
         tableName = "groups",
@@ -40,8 +40,7 @@ object GroupsDao {
         ).
         as(
           io.flow.group.v0.anorm.parsers.Group.table("groups").*
-        )*/
-    Seq(Group.apply("1", "Mike"))
-
+        )
+    }
   }
 }

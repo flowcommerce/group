@@ -58,5 +58,7 @@ lazy val commonSettings: Seq[Setting[_]] = Seq(
     "org.scalatest" %% "scalatest" % "2.2.6" % "test"
   ),
   scalacOptions += "-feature",
-  coverageHighlighting := true
+  coverageHighlighting := true,
+  resolvers += "Artifactory" at "https://flow.artifactoryonline.com/flow/libs-release/",
+  resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases"
 )

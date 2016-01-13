@@ -108,7 +108,6 @@
     <orderEntry type="library" name="SBT: org.scala-lang.plugins:scala-continuations-library_2.11:1.0.1:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="SBT: org.scala-sbt:test-interface:1.0:jar" level="project" />
     <orderEntry type="library" name="SBT: org.scala-stm:scala-stm_2.11:0.7:jar" level="project" />
-    <orderEntry type="library" scope="TEST" name="SBT: org.scalatest:scalatest_2.11:2.2.5:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="SBT: org.scalatestplus:play_2.11:1.4.0-M4:jar" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="SBT: org.scoverage:scalac-scoverage-plugin_2.11:1.0.1:jar" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="SBT: org.scoverage:scalac-scoverage-runtime_2.11:1.0.1:jar" level="project" />
@@ -132,9 +131,11 @@
     <orderEntry type="library" scope="TEST" name="SBT: xalan:xalan:2.7.2:jar" level="project" />
     <orderEntry type="library" name="SBT: xerces:xercesImpl:2.11.0:jar" level="project" />
     <orderEntry type="library" name="SBT: xml-apis:xml-apis:1.4.01:jar" level="project" />
-    <orderEntry type="library" name="SBT: io.flow:lib-play_2.11:0.0.16:jar" level="project" />
     <orderEntry type="library" name="SBT: com.typesafe.play:anorm-tokenizer_2.11:2.5.0:jar" level="project" />
     <orderEntry type="library" name="SBT: com.typesafe.play:anorm_2.11:2.5.0:jar" level="project" />
-    <orderEntry type="library" name="SBT: io.flow:lib-postgresql_2.11:0.0.16:jar" level="project" />
+    <orderEntry type="library" name="SBT: io.flow:lib-play_2.11:0.0.18:jar" level="project" />
+    <orderEntry type="library" name="SBT: io.flow:lib-postgresql_2.11:0.0.17:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="SBT: org.scala-lang:scala-reflect:2.11.7:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="SBT: org.scalatest:scalatest_2.11:2.2.6:jar" level="project" />
   </component>
 </module>

@@ -5,3 +5,8 @@ update groups set name = 'Administrators', updated_by_user_id = 'usr' where id =
 
 insert into groups(id, name, updated_by_user_id) values ('3', 'Tmp', 'usr');
 update groups set deleted_at = now(), updated_by_user_id = 'hacker' where id = '3';
+
+
+insert into memberships(id, group_id, user_id) values ('1', '1', '1');
+insert into memberships(id, group_id, user_id) values ('2', '2', '2');
+insert into memberships(id, group_id, user_id) values ('3', '2', '3');

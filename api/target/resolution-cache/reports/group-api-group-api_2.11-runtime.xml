@@ -7,7 +7,7 @@
 		revision="0.1-SNAPSHOT"
 		conf="runtime"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20160111151138"/>
+		date="20160112065608"/>
 	<dependencies>
 		<module organisation="org.postgresql" name="postgresql">
 			<revision name="9.4-1206-jdbc42" status="release" pubdate="20151125150416" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://jdbc.postgresql.org" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="64">
@@ -22,32 +22,26 @@
 			</revision>
 		</module>
 		<module organisation="io.flow" name="lib-postgresql_2.11">
-			<revision name="0.0.16" status="release" pubdate="20160104130222" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="59">
-				<metadata-artifact status="no" details="" size="2814" time="0" location="/Users/mikeroth/.ivy2/cache/io.flow/lib-postgresql_2.11/ivy-0.0.16.xml" searched="false" origin-is-local="false" origin-location="https://flow.artifactoryonline.com/flow/libs-release/io/flow/lib-postgresql_2.11/0.0.16/lib-postgresql_2.11-0.0.16.pom"/>
-				<caller organisation="group-api" name="group-api_2.11" conf="compile, runtime" rev="0.0.16" rev-constraint-default="0.0.16" rev-constraint-dynamic="0.0.16" callerrev="0.1-SNAPSHOT"/>
+			<revision name="0.0.17" status="release" pubdate="20160111155558" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="59">
+				<metadata-artifact status="no" details="" size="2814" time="0" location="/Users/mikeroth/.ivy2/cache/io.flow/lib-postgresql_2.11/ivy-0.0.17.xml" searched="false" origin-is-local="false" origin-location="https://flow.artifactoryonline.com/flow/libs-release/io/flow/lib-postgresql_2.11/0.0.17/lib-postgresql_2.11-0.0.17.pom"/>
+				<caller organisation="group-api" name="group-api_2.11" conf="compile, runtime" rev="0.0.17" rev-constraint-default="0.0.17" rev-constraint-dynamic="0.0.17" callerrev="0.1-SNAPSHOT"/>
 				<artifacts>
-					<artifact name="lib-postgresql_2.11" type="jar" ext="jar" status="no" details="" size="94462" time="0" location="/Users/mikeroth/.ivy2/cache/io.flow/lib-postgresql_2.11/jars/lib-postgresql_2.11-0.0.16.jar">
-						<origin-location is-local="false" location="https://flow.artifactoryonline.com/flow/libs-release/io/flow/lib-postgresql_2.11/0.0.16/lib-postgresql_2.11-0.0.16.jar"/>
+					<artifact name="lib-postgresql_2.11" type="jar" ext="jar" status="no" details="" size="97274" time="0" location="/Users/mikeroth/.ivy2/cache/io.flow/lib-postgresql_2.11/jars/lib-postgresql_2.11-0.0.17.jar">
+						<origin-location is-local="false" location="https://flow.artifactoryonline.com/flow/libs-release/io/flow/lib-postgresql_2.11/0.0.17/lib-postgresql_2.11-0.0.17.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
 		</module>
 		<module organisation="com.typesafe.play" name="anorm_2.11">
-			<revision name="2.5.0" status="release" pubdate="20150804225602" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/anorm" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master, default(compile)" position="60">
+			<revision name="2.5.0" status="release" pubdate="20150804225602" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/anorm" downloaded="false" searched="false" default="false" conf="default, compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="60">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
 				<metadata-artifact status="no" details="" size="4134" time="0" location="/Users/mikeroth/.ivy2/cache/com.typesafe.play/anorm_2.11/ivy-2.5.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/anorm_2.11/2.5.0/anorm_2.11-2.5.0.pom"/>
-				<caller organisation="io.flow" name="lib-postgresql_2.11" conf="default, compile, runtime, master" rev="2.5.0" rev-constraint-default="2.5.0" rev-constraint-dynamic="2.5.0" callerrev="0.0.16"/>
-				<caller organisation="group-api" name="group-api_2.11" conf="compile, runtime" rev="2.4.0" rev-constraint-default="2.4.0" rev-constraint-dynamic="2.4.0" callerrev="0.1-SNAPSHOT"/>
+				<caller organisation="group-api" name="group-api_2.11" conf="compile, runtime" rev="2.5.0" rev-constraint-default="2.5.0" rev-constraint-dynamic="2.5.0" callerrev="0.1-SNAPSHOT"/>
+				<caller organisation="io.flow" name="lib-postgresql_2.11" conf="default, compile, runtime, master" rev="2.5.0" rev-constraint-default="2.5.0" rev-constraint-dynamic="2.5.0" callerrev="0.0.17"/>
 				<artifacts>
 					<artifact name="anorm_2.11" type="jar" ext="jar" status="no" details="" size="655247" time="0" location="/Users/mikeroth/.ivy2/cache/com.typesafe.play/anorm_2.11/jars/anorm_2.11-2.5.0.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/play/anorm_2.11/2.5.0/anorm_2.11-2.5.0.jar"/>
 					</artifact>
-				</artifacts>
-			</revision>
-			<revision name="2.4.0" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="default, compile, runtime, default(compile), master" position="-1">
-				<evicted-by rev="2.5.0"/>
-				<caller organisation="group-api" name="group-api_2.11" conf="compile, runtime" rev="2.4.0" rev-constraint-default="2.4.0" rev-constraint-dynamic="2.4.0" callerrev="0.1-SNAPSHOT"/>
-				<artifacts>
 				</artifacts>
 			</revision>
 		</module>
@@ -88,12 +82,12 @@
 			</revision>
 		</module>
 		<module organisation="io.flow" name="lib-play_2.11">
-			<revision name="0.0.16" status="release" pubdate="20160111111041" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="58">
-				<metadata-artifact status="no" details="" size="3385" time="0" location="/Users/mikeroth/.ivy2/cache/io.flow/lib-play_2.11/ivy-0.0.16.xml" searched="false" origin-is-local="false" origin-location="https://flow.artifactoryonline.com/flow/libs-release/io/flow/lib-play_2.11/0.0.16/lib-play_2.11-0.0.16.pom"/>
-				<caller organisation="group-api" name="group-api_2.11" conf="compile, runtime" rev="0.0.16" rev-constraint-default="0.0.16" rev-constraint-dynamic="0.0.16" callerrev="0.1-SNAPSHOT"/>
+			<revision name="0.0.18" status="release" pubdate="20160111175331" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="58">
+				<metadata-artifact status="no" details="" size="3385" time="0" location="/Users/mikeroth/.ivy2/cache/io.flow/lib-play_2.11/ivy-0.0.18.xml" searched="false" origin-is-local="false" origin-location="https://flow.artifactoryonline.com/flow/libs-release/io/flow/lib-play_2.11/0.0.18/lib-play_2.11-0.0.18.pom"/>
+				<caller organisation="group-api" name="group-api_2.11" conf="compile, runtime" rev="0.0.18" rev-constraint-default="0.0.18" rev-constraint-dynamic="0.0.18" callerrev="0.1-SNAPSHOT"/>
 				<artifacts>
-					<artifact name="lib-play_2.11" type="jar" ext="jar" status="no" details="" size="842839" time="0" location="/Users/mikeroth/.ivy2/cache/io.flow/lib-play_2.11/jars/lib-play_2.11-0.0.16.jar">
-						<origin-location is-local="false" location="https://flow.artifactoryonline.com/flow/libs-release/io/flow/lib-play_2.11/0.0.16/lib-play_2.11-0.0.16.jar"/>
+					<artifact name="lib-play_2.11" type="jar" ext="jar" status="no" details="" size="851727" time="0" location="/Users/mikeroth/.ivy2/cache/io.flow/lib-play_2.11/jars/lib-play_2.11-0.0.18.jar">
+						<origin-location is-local="false" location="https://flow.artifactoryonline.com/flow/libs-release/io/flow/lib-play_2.11/0.0.18/lib-play_2.11-0.0.18.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
@@ -168,7 +162,7 @@
 			</revision>
 		</module>
 		<module organisation="generated" name="generated_2.11">
-			<revision name="0.1-SNAPSHOT" status="integration" pubdate="20160111151137" resolver="inter-project" artresolver="inter-project" downloaded="false" searched="false" default="false" conf="compile, default(compile)" position="1">
+			<revision name="0.1-SNAPSHOT" status="integration" pubdate="20160112065606" resolver="inter-project" artresolver="inter-project" downloaded="false" searched="false" default="false" conf="compile, default(compile)" position="1">
 				<metadata-artifact status="failed" details="" size="0" time="0" searched="false"/>
 				<caller organisation="group-api" name="group-api_2.11" conf="compile, runtime" rev="0.1-SNAPSHOT" rev-constraint-default="0.1-SNAPSHOT" rev-constraint-dynamic="0.1-SNAPSHOT" callerrev="0.1-SNAPSHOT"/>
 				<artifacts>
@@ -179,8 +173,8 @@
 			<revision name="2.4.3" status="release" pubdate="20150906210539" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="44">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
 				<metadata-artifact status="no" details="" size="4115" time="0" location="/Users/mikeroth/.ivy2/cache/com.typesafe.play/play-ws_2.11/ivy-2.4.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/play-ws_2.11/2.4.3/play-ws_2.11-2.4.3.pom"/>
-				<caller organisation="io.flow" name="lib-play_2.11" conf="default, compile, runtime, master" rev="2.4.3" rev-constraint-default="2.4.3" rev-constraint-dynamic="2.4.3" callerrev="0.0.16"/>
 				<caller organisation="generated" name="generated_2.11" conf="compile" rev="2.4.3" rev-constraint-default="2.4.3" rev-constraint-dynamic="2.4.3" callerrev="0.1-SNAPSHOT"/>
+				<caller organisation="io.flow" name="lib-play_2.11" conf="default, compile, runtime, master" rev="2.4.3" rev-constraint-default="2.4.3" rev-constraint-dynamic="2.4.3" callerrev="0.0.18"/>
 				<caller organisation="group-api" name="group-api_2.11" conf="compile, runtime" rev="2.4.3" rev-constraint-default="2.4.3" rev-constraint-dynamic="2.4.3" callerrev="0.1-SNAPSHOT"/>
 				<artifacts>
 					<artifact name="play-ws_2.11" type="jar" ext="jar" status="no" details="" size="592450" time="0" location="/Users/mikeroth/.ivy2/cache/com.typesafe.play/play-ws_2.11/jars/play-ws_2.11-2.4.3.jar">
@@ -253,8 +247,8 @@
 			<revision name="2.4.3" status="release" pubdate="20150906210558" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="41">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
 				<metadata-artifact status="no" details="" size="3484" time="0" location="/Users/mikeroth/.ivy2/cache/com.typesafe.play/play-netty-server_2.11/ivy-2.4.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/play-netty-server_2.11/2.4.3/play-netty-server_2.11-2.4.3.pom"/>
-				<caller organisation="io.flow" name="lib-play_2.11" conf="default, compile, runtime, master" rev="2.4.3" rev-constraint-default="2.4.3" rev-constraint-dynamic="2.4.3" callerrev="0.0.16"/>
 				<caller organisation="generated" name="generated_2.11" conf="compile" rev="2.4.3" rev-constraint-default="2.4.3" rev-constraint-dynamic="2.4.3" callerrev="0.1-SNAPSHOT"/>
+				<caller organisation="io.flow" name="lib-play_2.11" conf="default, compile, runtime, master" rev="2.4.3" rev-constraint-default="2.4.3" rev-constraint-dynamic="2.4.3" callerrev="0.0.18"/>
 				<caller organisation="group-api" name="group-api_2.11" conf="compile, runtime" rev="2.4.3" rev-constraint-default="2.4.3" rev-constraint-dynamic="2.4.3" callerrev="0.1-SNAPSHOT"/>
 				<artifacts>
 					<artifact name="play-netty-server_2.11" type="jar" ext="jar" status="no" details="" size="213275" time="0" location="/Users/mikeroth/.ivy2/cache/com.typesafe.play/play-netty-server_2.11/jars/play-netty-server_2.11-2.4.3.jar">
@@ -311,8 +305,8 @@
 			<revision name="2.4.3" status="release" pubdate="20150906210516" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="5">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
 				<metadata-artifact status="no" details="" size="3433" time="0" location="/Users/mikeroth/.ivy2/cache/com.typesafe.play/play-server_2.11/ivy-2.4.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/play-server_2.11/2.4.3/play-server_2.11-2.4.3.pom"/>
-				<caller organisation="io.flow" name="lib-play_2.11" conf="default, compile, runtime, master" rev="2.4.3" rev-constraint-default="2.4.3" rev-constraint-dynamic="2.4.3" callerrev="0.0.16"/>
 				<caller organisation="generated" name="generated_2.11" conf="compile" rev="2.4.3" rev-constraint-default="2.4.3" rev-constraint-dynamic="2.4.3" callerrev="0.1-SNAPSHOT"/>
+				<caller organisation="io.flow" name="lib-play_2.11" conf="default, compile, runtime, master" rev="2.4.3" rev-constraint-default="2.4.3" rev-constraint-dynamic="2.4.3" callerrev="0.0.18"/>
 				<caller organisation="com.typesafe.play" name="play-netty-server_2.11" conf="default, compile, runtime, master" rev="2.4.3" rev-constraint-default="2.4.3" rev-constraint-dynamic="2.4.3" callerrev="2.4.3"/>
 				<caller organisation="group-api" name="group-api_2.11" conf="compile, runtime" rev="2.4.3" rev-constraint-default="2.4.3" rev-constraint-dynamic="2.4.3" callerrev="0.1-SNAPSHOT"/>
 				<artifacts>
@@ -852,8 +846,8 @@
 			<revision name="1.1.1" status="release" pubdate="20150514010045" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/twirl" downloaded="false" searched="false" default="false" conf="default, compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="2">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
 				<metadata-artifact status="no" details="" size="3456" time="0" location="/Users/mikeroth/.ivy2/cache/com.typesafe.play/twirl-api_2.11/ivy-1.1.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/twirl-api_2.11/1.1.1/twirl-api_2.11-1.1.1.pom"/>
-				<caller organisation="io.flow" name="lib-play_2.11" conf="default, compile, runtime, master" rev="1.1.1" rev-constraint-default="1.1.1" rev-constraint-dynamic="1.1.1" callerrev="0.0.16"/>
 				<caller organisation="generated" name="generated_2.11" conf="compile" rev="1.1.1" rev-constraint-default="1.1.1" rev-constraint-dynamic="1.1.1" callerrev="0.1-SNAPSHOT"/>
+				<caller organisation="io.flow" name="lib-play_2.11" conf="default, compile, runtime, master" rev="1.1.1" rev-constraint-default="1.1.1" rev-constraint-dynamic="1.1.1" callerrev="0.0.18"/>
 				<caller organisation="group-api" name="group-api_2.11" conf="compile, runtime" rev="1.1.1" rev-constraint-default="1.1.1" rev-constraint-dynamic="1.1.1" callerrev="0.1-SNAPSHOT"/>
 				<caller organisation="com.typesafe.play" name="play_2.11" conf="compile, runtime" rev="1.1.1" rev-constraint-default="1.1.1" rev-constraint-dynamic="1.1.1" callerrev="2.4.3"/>
 				<artifacts>
@@ -921,21 +915,21 @@
 				<caller organisation="com.typesafe.play" name="twirl-api_2.11" conf="default, compile, runtime, master" rev="2.11.6" rev-constraint-default="2.11.6" rev-constraint-dynamic="2.11.6" callerrev="1.1.1"/>
 				<caller organisation="com.typesafe.play" name="play-iteratees_2.11" conf="compile, runtime" rev="2.11.6" rev-constraint-default="2.11.6" rev-constraint-dynamic="2.11.6" callerrev="2.4.3"/>
 				<caller organisation="org.scala-stm" name="scala-stm_2.11" conf="compile, runtime" rev="2.11.0" rev-constraint-default="2.11.0" rev-constraint-dynamic="2.11.0" callerrev="0.7"/>
-				<caller organisation="io.flow" name="lib-play_2.11" conf="default, compile, runtime, master" rev="2.11.7" rev-constraint-default="2.11.7" rev-constraint-dynamic="2.11.7" callerrev="0.0.16"/>
 				<caller organisation="com.typesafe.play" name="play_2.11" conf="compile, runtime" rev="2.11.6" rev-constraint-default="2.11.6" rev-constraint-dynamic="2.11.6" callerrev="2.4.3"/>
 				<caller organisation="com.typesafe.play" name="play-ws_2.11" conf="default, compile, runtime, master" rev="2.11.6" rev-constraint-default="2.11.6" rev-constraint-dynamic="2.11.6" callerrev="2.4.3"/>
 				<caller organisation="com.typesafe.play" name="play-jdbc_2.11" conf="default, compile, runtime, master" rev="2.11.6" rev-constraint-default="2.11.6" rev-constraint-dynamic="2.11.6" callerrev="2.4.3"/>
 				<caller organisation="com.typesafe.play" name="anorm_2.11" conf="compile, runtime" rev="2.11.6" rev-constraint-default="2.11.6" rev-constraint-dynamic="2.11.6" callerrev="2.5.0"/>
 				<caller organisation="com.typesafe.play" name="play-functional_2.11" conf="compile, runtime" rev="2.11.6" rev-constraint-default="2.11.6" rev-constraint-dynamic="2.11.6" callerrev="2.4.3"/>
+				<caller organisation="io.flow" name="lib-play_2.11" conf="default, compile, runtime, master" rev="2.11.7" rev-constraint-default="2.11.7" rev-constraint-dynamic="2.11.7" callerrev="0.0.18"/>
 				<caller organisation="com.jsuereth" name="scala-arm_2.11" conf="compile, runtime" rev="2.11.0" rev-constraint-default="2.11.0" rev-constraint-dynamic="2.11.0" callerrev="1.4"/>
 				<caller organisation="org.scala-lang.modules" name="scala-xml_2.11" conf="compile, runtime" rev="2.11.0" rev-constraint-default="2.11.0" rev-constraint-dynamic="2.11.0" callerrev="1.0.1"/>
 				<caller organisation="com.typesafe.play" name="anorm-tokenizer_2.11" conf="compile, runtime" rev="2.11.6" rev-constraint-default="2.11.6" rev-constraint-dynamic="2.11.6" callerrev="2.5.0"/>
+				<caller organisation="io.flow" name="lib-postgresql_2.11" conf="default, compile, runtime, master" rev="2.11.7" rev-constraint-default="2.11.7" rev-constraint-dynamic="2.11.7" callerrev="0.0.17"/>
 				<caller organisation="com.typesafe.play" name="play-json_2.11" conf="compile, runtime" rev="2.11.6" rev-constraint-default="2.11.6" rev-constraint-dynamic="2.11.6" callerrev="2.4.3"/>
 				<caller organisation="org.scala-lang" name="scala-reflect" conf="compile, runtime" rev="2.11.6" rev-constraint-default="2.11.6" rev-constraint-dynamic="2.11.6" callerrev="2.11.6"/>
 				<caller organisation="com.typesafe.akka" name="akka-slf4j_2.11" conf="compile, runtime" rev="2.11.5" rev-constraint-default="2.11.5" rev-constraint-dynamic="2.11.5" callerrev="2.3.13"/>
 				<caller organisation="org.scala-lang.plugins" name="scala-continuations-library_2.11" conf="compile, runtime" rev="2.11.0" rev-constraint-default="2.11.0" rev-constraint-dynamic="2.11.0" callerrev="1.0.1"/>
 				<caller organisation="com.typesafe.akka" name="akka-actor_2.11" conf="compile, runtime" rev="2.11.5" rev-constraint-default="2.11.5" rev-constraint-dynamic="2.11.5" callerrev="2.3.13"/>
-				<caller organisation="io.flow" name="lib-postgresql_2.11" conf="default, compile, runtime, master" rev="2.11.7" rev-constraint-default="2.11.7" rev-constraint-dynamic="2.11.7" callerrev="0.0.16"/>
 				<caller organisation="generated" name="generated_2.11" conf="compile" rev="2.11.7" rev-constraint-default="2.11.7" rev-constraint-dynamic="2.11.7" callerrev="0.1-SNAPSHOT"/>
 				<caller organisation="com.typesafe.play" name="play-server_2.11" conf="default, compile, runtime, master" rev="2.11.6" rev-constraint-default="2.11.6" rev-constraint-dynamic="2.11.6" callerrev="2.4.3"/>
 				<caller organisation="com.typesafe.play" name="play-netty-server_2.11" conf="default, compile, runtime, master" rev="2.11.6" rev-constraint-default="2.11.6" rev-constraint-dynamic="2.11.6" callerrev="2.4.3"/>

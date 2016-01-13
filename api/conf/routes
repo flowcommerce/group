@@ -5,5 +5,5 @@
 GET     /groups                     controllers.Groups.get(id: _root_.scala.Option[List[String]], limit: Long ?= 25, offset: Long ?= 0, sort: String ?= "lower(name),-created_at")
 #GET     /groups/versions            controllers.Groups.getVersions(id: _root_.scala.Option[List[String]], group_id: _root_.scala.Option[List[String]], limit: Long ?= 25, offset: Long ?= 0, sort: String ?= "created_at")
 GET     /_internal_/healthcheck     controllers.Healthchecks.getInternalAndHealthcheck()
-#GET     /memberships                controllers.Memberships.get(id: _root_.scala.Option[List[String]], limit: Long ?= 25, offset: Long ?= 0, sort: String ?= "-created_at", expand: _root_.scala.Option[List[String]])
+GET     /memberships                controllers.Memberships.get(id: _root_.scala.Option[List[String]], limit: Long ?= 25, offset: Long ?= 0, sort: String ?= "-created_at", expand: _root_.scala.Option[List[String]])
 #GET     /memberships/versions       controllers.Memberships.getVersions(id: _root_.scala.Option[List[String]], membership_id: _root_.scala.Option[List[String]], limit: Long ?= 25, offset: Long ?= 0, sort: String ?= "created_at")

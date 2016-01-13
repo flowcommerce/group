@@ -26,13 +26,11 @@ with AuthorizedRestController {
          ) = Authenticated(
     reads = Some("io.flow.groups")
   ) { request =>
-    println("ASDf")
     OrderBy.parse(sort) match {
       case Left(errors) => {
         UnprocessableEntity(Json.toJson(Validation.invalidSort(errors)))
       }
       case Right(orderBy) => {
-        println("asdf")
         Ok(
           Json.toJson(
             GroupsDao.findAll(

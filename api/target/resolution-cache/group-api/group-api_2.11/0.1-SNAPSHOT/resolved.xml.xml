@@ -4,7 +4,7 @@
 		module="group-api_2.11"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20160111151138"
+		publication="20160112065608"
 	>
 		<description>
 		group-api
@@ -42,12 +42,12 @@
 		<dependency org="com.typesafe.play" name="play-test_2.11" rev="2.4.3" conf="test->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-omnidoc_2.11" rev="2.4.3" conf="docs->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-netty-server_2.11" rev="2.4.3" conf="compile->default(compile)"/>
-		<dependency org="org.scalatest" name="scalatest_2.11" rev="2.2.0" conf="test->default(compile)"/>
+		<dependency org="org.scalatest" name="scalatest_2.11" rev="2.2.6" conf="test->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-ws_2.11" rev="2.4.3" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-jdbc_2.11" rev="2.4.3" conf="compile->default(compile)"/>
-		<dependency org="io.flow" name="lib-play_2.11" rev="0.0.16" conf="compile->default(compile)"/>
-		<dependency org="io.flow" name="lib-postgresql_2.11" rev="0.0.16" conf="compile->default(compile)"/>
-		<dependency org="com.typesafe.play" name="anorm_2.11" rev="2.4.0" conf="compile->default(compile)"/>
+		<dependency org="io.flow" name="lib-play_2.11" rev="0.0.18" conf="compile->default(compile)"/>
+		<dependency org="io.flow" name="lib-postgresql_2.11" rev="0.0.17" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="anorm_2.11" rev="2.5.0" conf="compile->default(compile)"/>
 		<dependency org="org.postgresql" name="postgresql" rev="9.4-1206-jdbc42" conf="compile->default(compile)"/>
 		<dependency org="org.scalatestplus" name="play_2.11" rev="1.4.0-M4" conf="test->default(compile)"/>
 	</dependencies>

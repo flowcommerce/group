@@ -4,7 +4,7 @@
 		module="group-www_2.11"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20160111151105"
+		publication="20160111214708"
 	>
 		<description>
 		group-www
@@ -42,8 +42,8 @@
 		<dependency org="com.typesafe.play" name="play-test_2.11" rev="2.4.3" conf="test->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-omnidoc_2.11" rev="2.4.3" conf="docs->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-netty-server_2.11" rev="2.4.3" conf="compile->default(compile)"/>
-		<dependency org="org.scalatest" name="scalatest_2.11" rev="2.2.0" conf="test->default(compile)"/>
-		<dependency org="org.webjars" name="webjars-play_2.11" rev="2.4.0-1" conf="compile->default(compile)"/>
+		<dependency org="org.scalatest" name="scalatest_2.11" rev="2.2.6" conf="test->default(compile)"/>
+		<dependency org="org.webjars" name="webjars-play_2.11" rev="2.4.0-2" conf="compile->default(compile)"/>
 		<dependency org="org.webjars" name="bootstrap" rev="3.3.6" conf="compile->default(compile)"/>
 		<dependency org="org.webjars" name="jquery" rev="2.1.4" conf="compile->default(compile)"/>
 	</dependencies>
