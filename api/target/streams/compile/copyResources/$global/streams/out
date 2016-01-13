@@ -1,5 +1,0 @@
-[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
-[0m[[0mdebug[0m] [0m	(/Users/mikeroth/GitRepos/group/api/conf/application.conf,/Users/mikeroth/GitRepos/group/api/target/scala-2.11/classes/application.conf)[0m
-[0m[[0mdebug[0m] [0m	(/Users/mikeroth/GitRepos/group/api/conf/application.production.conf,/Users/mikeroth/GitRepos/group/api/target/scala-2.11/classes/application.production.conf)[0m
-[0m[[0mdebug[0m] [0m	(/Users/mikeroth/GitRepos/group/api/conf/base.conf,/Users/mikeroth/GitRepos/group/api/target/scala-2.11/classes/base.conf)[0m
-[0m[[0mdebug[0m] [0m	(/Users/mikeroth/GitRepos/group/api/conf/routes,/Users/mikeroth/GitRepos/group/api/target/scala-2.11/classes/routes)[0m

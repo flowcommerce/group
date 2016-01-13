@@ -1,7 +1,8 @@
 package controllers
 
 import db.MembershipsDao
-import io.flow.group.v0.models.{User, UserReference, Membership}
+import io.flow.common.v0.models.User
+import io.flow.group.v0.models.{UserReference, Membership, User}
 import io.flow.group.v0.models.json._
 import io.flow.play.clients.{UserTokensClient, AuthorizationClient}
 import io.flow.play.controllers.AuthorizedRestController
@@ -36,11 +37,9 @@ with AuthorizedRestController {
      userClient: io.flow.user.v0.Client
   ) extends Expander {
     def expand(records: Seq[JsValue])(implicit ec: ExecutionContext): Future[Seq[JsValue]] = {
-      //records is Seq[Memberships]]
-
       val userIds: Seq[String] = records.map { r =>
         (r \ fieldName).validate[UserReference] match {
-          case JsSuccess(ur, _) => ur.id
+          case JsSuccess(userReference, _) => userReference.id
         }
       }
 
@@ -50,23 +49,22 @@ with AuthorizedRestController {
         }
         case ids => {
           userClient.Users.get(id = Some(ids), limit = userIds.size).map(users =>
-            Map(users.map(u => (u.id -> User(u.id, u.email))): _*)
+            Map(users.map(user => (user.id -> io.flow.group.v0.models.User(user.id, user.email, user.name))): _*)
           ).map(userIdLookup =>
             records.map { r =>
               r.validate[JsObject] match {
-                case JsError(_) => r
-                case JsSuccess(obj, _) => {
+                case JsSuccess(obj,_) => {
                   (r \ fieldName).validate[UserReference] match {
-                    case JsSuccess(userReference, _) => {
+                    case JsSuccess(userReference,_) => {
                       obj ++ Json.obj(
-                        fieldName -> Json.toJson(
-                          userIdLookup.get(userReference.id).getOrElse(userReference)
-                        )
+                        fieldName ->
+                          Json.toJson(userIdLookup.get(userReference.id).getOrElse(userReference))
                       )
                     }
                     case JsError(_) => r
                   }
                 }
+                case JsError(_) => r
               }
             }
           )
@@ -79,15 +77,12 @@ with AuthorizedRestController {
     new UserExpander("user", userClient)
   )
 
-
-
   def get(
    id: Option[Seq[String]],
    limit: Long = 25,
    offset: Long = 0,
    sort: String,
    expand: Option[Seq[String]]
-
   ) = Authenticated(
     reads = Some("io.flow.memberships")
   ) { request =>

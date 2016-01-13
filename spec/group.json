@@ -1,165 +1,152 @@
 {
+  "name": "group",
 
-    "name": "group",
-
-    "imports": [
+  "imports": [
 	{ "uri": "http://www.apidoc.me/flow/common/0.0.6/service.json" }
-    ],
+  ],
 
-    "unions": {
+  "unions": {
 	"expandable_user": {
-	    "discriminator": "discriminator",
-	    "types": [
-			{ "type": "user_reference" },
-			{ "type": "user" }
-	    ]
+      "discriminator": "discriminator",
+	  "types": [
+	    { "type": "user_reference" },
+		{ "type": "user" }
+	  ]
 	}
-    },
+  },
     
-    "models": {
+  "models": {
 	"group": {
-	    "fields": [
-		{ "name": "id", "type": "string" },
+	  "fields": [
+        { "name": "id", "type": "string" },
 		{ "name": "name", "type": "string" }
-	    ]
+      ]
 	},
 
 	"group_version": {
-	    "fields": [
+      "fields": [
 		{ "name": "id", "type": "string" },
 		{ "name": "timestamp", "type": "date-time-iso8601" },
 		{ "name": "type", "type": "io.flow.common.v0.enums.change_type" },
 		{ "name": "group", "type": "group" }
-	    ]
+      ]
 	},
 	
 	"user": {
-	    "fields": [
+      "fields": [
 		{ "name": "id", "type": "string" },
-		{ "name": "email", "type": "string", "required":false }
-	    ]
+		{ "name": "email", "type": "string", "required":false },
+        { "name": "name", "type": "io.flow.common.v0.models.name" }
+      ]
 	},
 
 	"user_reference": {
-	    "fields": [
+      "fields": [
 		{ "name": "id", "type": "string" }
-	    ]
+      ]
 	},
 	
 	"membership": {
-	    "fields": [
+      "fields": [
 		{ "name": "id", "type": "string" },
 		{ "name": "group", "type": "group" },
 		{ "name": "user", "type": "expandable_user" }
-	    ]
+      ]
 	},
 
 	"membership_version": {
-	    "fields": [
+      "fields": [
 		{ "name": "id", "type": "string" },
 		{ "name": "timestamp", "type": "date-time-iso8601" },
 		{ "name": "type", "type": "io.flow.common.v0.enums.change_type" },
 		{ "name": "membership", "type": "membership" }
-	    ]
+      ]
 	}
+  },
 
-    },
-
-    "resources": {
-
-	"io.flow.common.v0.models.healthcheck": {
-	    "path": "/_internal_",
-            "operations": [
-                {
-                    "method": "GET",
-		    "path": "/healthcheck",
-                    "responses": {
-                        "200": { "type": "io.flow.common.v0.models.healthcheck" }
-                    }
-                }
-	    ]
+  "resources": {
+    "io.flow.common.v0.models.healthcheck": {
+      "path": "/_internal_",
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/healthcheck",
+          "responses": {
+            "200": { "type": "io.flow.common.v0.models.healthcheck" }
+          }
+        }
+      ]
 	},
 
 	"group": {
-
-	    "operations": [
+      "operations": [
 		{
-		    "method": "GET",
-
-		    "parameters": [
+          "method": "GET",
+          "parameters": [
 			{ "name": "id", "type": "[string]", "required": false, "maximum": 100 },
 			{ "name": "limit", "type": "long", "default": 25, "minimum": 1, "maximum": 100 },
 			{ "name": "offset", "type": "long", "default": 0, "minimum": 0 },
 			{ "name": "sort", "type": "string", "default": "lower(name)" }
-		    ],
+          ],
 		    
-		    "responses": {
+          "responses": {
 			"200": { "type": "[group]" },
 			"401": { "type": "unit" }
-		    }
-		},
-
-		{
-		    "method": "GET",
-		    "path": "/versions",
-
-		    "parameters": [
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/versions",
+          "parameters": [
 			{ "name": "id", "type": "[string]", "required": false, "maximum": 100 },
 			{ "name": "group_id", "type": "[string]", "required": false, "maximum": 100 },
 			{ "name": "limit", "type": "long", "default": 25, "minimum": 1, "maximum": 100 },
 			{ "name": "offset", "type": "long", "default": 0, "minimum": 0 },
 			{ "name": "sort", "type": "string", "default": "created_at" }
-		    ],
+          ],
 		    
-		    "responses": {
+          "responses": {
 			"200": { "type": "[group_version]" },
 			"401": { "type": "unit" }
-		    }
+          }
 		}
-
-	    ]
+      ]
 	},
 
 	"membership": {
-	    "operations": [
-		{
-		    "method": "GET",
-
-		    "parameters": [
+      "operations": [
+        {
+          "method": "GET",
+          "parameters": [
 			{ "name": "id", "type": "[string]", "required": false, "maximum": 100 },
 			{ "name": "limit", "type": "long", "default": 25, "minimum": 1, "maximum": 100 },
 			{ "name": "offset", "type": "long", "default": 0, "minimum": 0 },
 			{ "name": "sort", "type": "string", "default": "-created_at" },
 			{ "name": "expand", "type": "[string]", "minimum": 0, "maximum": 1, "example": "user", "required": false }
-		    ],
-		    
-		    "responses": {
+          ],
+
+          "responses": {
 			"200": { "type": "[membership]" },
 			"401": { "type": "unit" }
-		    }
+          }
 		},
-
-		{
-		    "method": "GET",
-		    "path": "/versions",
-
-		    "parameters": [
+        {
+          "method": "GET",
+          "path": "/versions",
+          "parameters": [
 			{ "name": "id", "type": "[string]", "required": false, "maximum": 100 },
 			{ "name": "membership_id", "type": "[string]", "required": false, "maximum": 100 },
 			{ "name": "limit", "type": "long", "default": 25, "minimum": 1, "maximum": 100 },
 			{ "name": "offset", "type": "long", "default": 0, "minimum": 0 },
 			{ "name": "sort", "type": "string", "default": "created_at" }
-		    ],
+          ],
 		    
-		    "responses": {
+          "responses": {
 			"200": { "type": "[membership_version]" },
 			"401": { "type": "unit" }
 		    }
 		}
-
-	    ]
-	}
-	
+      ]
     }
-
+  }
 }
