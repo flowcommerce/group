@@ -571,6 +571,38 @@ package io.flow.common.v0.anorm.parsers {
 
   }
 
+  object OrganizationReference {
+
+    case class Mappings(
+      id: String = "id"
+    )
+
+    object Mappings {
+
+      val base = prefix("", "")
+
+      def table(table: String) = prefix(table, ".")
+
+      def prefix(prefix: String, sep: String) = Mappings(
+        id = s"${prefix}${sep}id"
+      )
+
+    }
+
+    def table(table: String) = parser(Mappings.prefix(table, "."))
+
+    def parser(mappings: Mappings): RowParser[io.flow.common.v0.models.OrganizationReference] = {
+      SqlParser.str(mappings.id) map {
+        case id => {
+          io.flow.common.v0.models.OrganizationReference(
+            id = id
+          )
+        }
+      }
+    }
+
+  }
+
   object OrganizationSummary {
 
     case class Mappings(
@@ -643,38 +675,6 @@ package io.flow.common.v0.anorm.parsers {
 
   }
 
-  object Reference {
-
-    case class Mappings(
-      id: String = "id"
-    )
-
-    object Mappings {
-
-      val base = prefix("", "")
-
-      def table(table: String) = prefix(table, ".")
-
-      def prefix(prefix: String, sep: String) = Mappings(
-        id = s"${prefix}${sep}id"
-      )
-
-    }
-
-    def table(table: String) = parser(Mappings.prefix(table, "."))
-
-    def parser(mappings: Mappings): RowParser[io.flow.common.v0.models.Reference] = {
-      SqlParser.str(mappings.id) map {
-        case id => {
-          io.flow.common.v0.models.Reference(
-            id = id
-          )
-        }
-      }
-    }
-
-  }
-
   object User {
 
     case class Mappings(
@@ -708,6 +708,38 @@ package io.flow.common.v0.anorm.parsers {
             id = id,
             email = email,
             name = name
+          )
+        }
+      }
+    }
+
+  }
+
+  object UserReference {
+
+    case class Mappings(
+      id: String = "id"
+    )
+
+    object Mappings {
+
+      val base = prefix("", "")
+
+      def table(table: String) = prefix(table, ".")
+
+      def prefix(prefix: String, sep: String) = Mappings(
+        id = s"${prefix}${sep}id"
+      )
+
+    }
+
+    def table(table: String) = parser(Mappings.prefix(table, "."))
+
+    def parser(mappings: Mappings): RowParser[io.flow.common.v0.models.UserReference] = {
+      SqlParser.str(mappings.id) map {
+        case id => {
+          io.flow.common.v0.models.UserReference(
+            id = id
           )
         }
       }
