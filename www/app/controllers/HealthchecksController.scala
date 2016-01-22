@@ -1,7 +1,7 @@
 package controllers
 
-import io.flow.group.v0.models.Healthcheck
-import io.flow.group.v0.models.json._
+import io.flow.common.v0.models.Healthcheck
+import io.flow.common.v0.models.json._
 
 import play.api._
 import play.api.mvc._

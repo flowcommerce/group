@@ -39,7 +39,7 @@ object GroupsDao {
           valueFunctions = Seq(Query.Function.Lower, Query.Function.Trim)
         ).
         as(
-          io.flow.group.v0.anorm.parsers.Group.table("groups").*
+          io.flow.group.v0.anorm.parsers.Group.parser().*
         )
     }
   }
