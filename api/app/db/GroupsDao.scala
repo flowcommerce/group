@@ -29,7 +29,7 @@ object GroupsDao {
         ids = ids,
         isDeleted = isDeleted,
         orderBy = orderBy.sql,
-        limit = Some(limit),
+        limit = limit,
         offset = offset
       ).
         text(

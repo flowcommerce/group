@@ -20,11 +20,11 @@ private[db] case object Standards {
    ids: Option[Seq[String]],
    isDeleted: Option[Boolean],
    orderBy: Option[String],
-   limit: Option[Long],
+   limit: Long,
    offset: Long
   ): Query = {
     query.
-      in(
+      optionalIn(
         s"$tableName.id",
         ids,
         valueFunctions = Seq(Query.Function.Lower, Query.Function.Trim)
@@ -32,7 +32,7 @@ private[db] case object Standards {
       nullBoolean(s"$tableName.deleted_at", isDeleted).
       orderBy(orderBy).
       limit(limit).
-      offset(Some(offset))
+      offset(offset)
   }
 
 }
