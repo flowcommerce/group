@@ -17,22 +17,18 @@ import play.api.libs.json.Json
 import scala.concurrent.duration.Duration
 import scala.concurrent.{Await, ExecutionContext, Future}
 import scala.concurrent.ExecutionContext.Implicits.global
-import io.flow.play.expanders.User
 
 
 class Memberships @javax.inject.Inject() (
   val userTokensClient: UserTokensClient,
-  val authorizationClient: AuthorizationClient
+  val authorizationClient: AuthorizationClient,
+  val userClient: clients.User
   ) extends Controller
   with AuthorizedRestController {
 
+
   override def expanders = {
-    val userPort = 8001
-    Seq(
-      new io.flow.play.expanders.User(
-        "user",
-        new Client(s"http://localhost:$userPort", auth = Some(io.flow.user.v0.Authorization.Basic("test"))))
-    )
+    Seq(new io.flow.play.expanders.User("user", userClient.client))
   }
 
   def get(
