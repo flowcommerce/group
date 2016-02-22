@@ -1,7 +1,7 @@
 package controllers
 
 import io.flow.group.v0.Client
-import io.flow.group.v0.models.Healthcheck
+import io.flow.common.v0.models.Healthcheck
 
 import play.api.test._
 import play.api.test.Helpers._
@@ -18,9 +18,9 @@ class HealthchecksSpec extends PlaySpec with OneServerPerSuite {
 
   "GET /_internal_/healthcheck" in new WithServer {
     await(
-      client.healthchecks.getInternalAndHealthcheck()
-    ) must beEqualTo(
-      Some(Healthcheck("healthy"))
+      client.healthchecks.getHealthcheck()
+    ) must equal(
+      Healthcheck("healthy")
     )
   }
 

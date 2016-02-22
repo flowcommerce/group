@@ -1,6 +1,5 @@
 package db
 
-import java.util.UUID
 import io.flow.postgresql.Query
 
 /**
